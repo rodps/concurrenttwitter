@@ -25,12 +25,11 @@ public class TwitterStreamListener implements StatusListener {
 
     @Override
     public void onStatus(Status status) {
-        System.out.println(status.getSource());
-//        try {
-//            queue.put(status);
-//        } catch (InterruptedException ex) {
-//            Logger.getLogger(TwitterStreamListener.class.getName()).log(Level.SEVERE, null, ex);
-//        }
+        try {
+            queue.put(status);
+        } catch (InterruptedException ex) {
+            Logger.getLogger(TwitterStreamListener.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     @Override
